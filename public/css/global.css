@@ -1,0 +1,876 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-green: #00ac4f;
+  --primary-blue: #65a5f5;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.__next {
+  width: 100%;
+  height: 100%;
+  background: var(--primary-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.overflowY {
+  overflow-y: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  /* background: transparent; */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  /* background-color: transparent; */
+  height: 10px;
+  border-radius: 5px;
+  border-bottom-right-radius: 0;
+}
+
+.scrollbar.show::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  /* background-color: transparent; */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  /* background: #a9a9a9; */
+  background: #d3d3d3;
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+  transition-delay: 0.15s;
+}
+
+.modal-content {
+  align-items: center;
+  /* background: transparent; */
+}
+
+.voting__app__skeleton__loader .loading {
+  position: relative;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.voting__app__skeleton__loader .loading::after {
+  display: block;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  animation: 2s loading linear 0.5s infinite;
+  background: linear-gradient(90deg, transparent, #ededed, transparent);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  60% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ===================================
+  HEADER STARTS HERE
+====================================== */
+
+/* ===================================
+    BUTTON STYLE STARTS HERE
+====================================== */
+
+.voting__app__submit__btn {
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: none;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.voting__app__submit__btn:focus,
+.voting__app__submit__btn:active:focus {
+  box-shadow: none;
+  color: inherit;
+}
+
+/* .voting__app__submit__btn:hover {
+  color: var(--black-100);
+} */
+
+.voting__app__submit__btn.lg {
+  padding: 10px 20px;
+}
+
+.voting__app__submit__btn.sm {
+  padding: 2px 16px;
+}
+
+.voting__app__submit__btn.dark {
+  background: #000;
+  border-color: var(--black-70);
+  /* box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.12), inset -1px -1px 4px rgba(0, 0, 0, 0.08); */
+  border-radius: 15px;
+  /* color: var(--green-10); */
+}
+
+.voting__app__submit__btn.outline {
+  border: 1px solid var(--green-20);
+  color: var(--black-90);
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.voting__app__submit__btn.green {
+  background: var(--primary-green);
+  border-radius: 0;
+}
+
+.voting__app__submit__btn.blue {
+  background: var(--primary-blue);
+  border-radius: 0;
+}
+
+.voting__app__submit__btn.red {
+  background: var(--red-100);
+  border-width: 1px 0px 0px 1px;
+  border-style: solid;
+  border-color: var(--royal-blue-50);
+  box-shadow: inset 1px 1px 4px rgba(255, 255, 255, 0.12), inset -1px -1px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.voting__app__submit__btn.text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  background: transparent;
+  padding: 0 4px !important;
+  color: var(--royal-blue-90);
+}
+
+/* .voting__app__submit__btn.dark:hover {
+  background-color: #222;
+  color: var(--green-10);
+} */
+
+.voting__app__submit__btn.dark:focus,
+.voting__app__submit__btn.dark:active,
+.voting__app__submit__btn.dark:active:focus {
+  color: #fff;
+  background-color: #000;
+}
+
+/* .voting__app__submit__btn.outline:hover {
+  background-color: var(--green-20);
+  color: var(--black-90);
+}
+
+.voting__app__submit__btn.outline:focus,
+.voting__app__submit__btn.outline:active,
+.voting__app__submit__btn.outline:active:focus {
+  color: var(--black-90);
+} */
+
+.voting__app__submit__btn.green:hover {
+  background-color: var(--primary-green);
+  color: #fff;
+}
+
+.voting__app__submit__btn.green:focus,
+.voting__app__submit__btn.green:active,
+.voting__app__submit__btn.green:active:focus {
+  color: #fff;
+}
+
+.voting__app__submit__btn.blue:hover {
+  background-color: var(--primary-blue);
+  color: #fff;
+}
+
+.voting__app__submit__btn.blue:focus,
+.voting__app__submit__btn.blue:active,
+.voting__app__submit__btn.blue:active:focus {
+  color: #fff;
+}
+
+.voting__app__submit__btn.red:hover {
+  background-color: var(--red-90);
+  color: #ffffff;
+}
+
+.voting__app__submit__btn.red:focus,
+.voting__app__submit__btn.red:active,
+.voting__app__submit__btn.red:active:focus {
+  color: #ffffff;
+}
+
+.voting__app__submit__btn.text:hover {
+  background-color: var(--royal-blue-20);
+  border-radius: 6px;
+  color: var(--royal-blue-90);
+}
+
+.voting__app__submit__btn.text:active,
+.voting__app__submit__btn.text:active:focus,
+.voting__app__submit__btn.text:focus {
+  color: var(--royal-blue-90);
+}
+
+.spinner-border {
+  width: 1rem !important;
+  height: 1rem !important;
+  border-width: 0.17rem !important;
+}
+
+/* ===================================
+    BUTTON STYLE ENDS HERE
+====================================== */
+
+/* ===================================
+    INPUT STYLE ENDS HERE
+====================================== */
+.voting__app-input-field-con .label {
+  font-size: 14px;
+}
+
+.voting__app-input-field-con input {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  background: #fbfbfb;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+.voting__app-input-field-con select {
+  background: #fbfbfb;
+  outline: none;
+}
+
+.voting__app-input-field-con select.disabled {
+  color: #bfbfd4;
+}
+
+.voting__app-input-field-con input::placeholder {
+  color: #bfbfd4;
+}
+
+.voting__app-input-field-con select option:disabled {
+  color: #bfbfd4;
+}
+
+.voting__app-input-field-con .voting__app-text-input-error {
+  color: red;
+  font-size: 12px;
+}
+
+.voting__app-input-field-con.searchbar input {
+  border-radius: 10px;
+  border: 1px solid #e7e7e7;
+  padding: 7px 12px;
+  padding-left: 37px;
+  font-size: 14px;
+}
+
+.voting__app-input-field-con.searchbar .input__relative {
+  position: relative;
+}
+
+.voting__app-input-field-con.searchbar .input__relative .icon__con {
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.voting__app-input-field-con.searchbar input::placeholder {
+  color: #bfbfd4;
+  font-size: 12px;
+}
+
+/* ===================================
+    INPUT STYLE ENDS HERE
+====================================== */
+
+/* ===================================
+    REGISTER PAGE STARTS HERE
+====================================== */
+.voting__app__register__layout {
+  height: 100%;
+  overflow: hidden;
+}
+
+.voting__app__register__layout > div {
+  flex: 1;
+}
+
+.voting__app__register__layout .design {
+  background-color: #000;
+  background-image: url('../images/register_bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.voting__app__register__layout .design h1 {
+  color: #fff;
+  /* font-family: HomepageBaukasten; */
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.voting__app__register__page__form__con {
+  max-width: 420px;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.voting__app__register__page__form__con .title h2 {
+  font-size: 22px;
+  color: #242424;
+  font-weight: 500;
+}
+
+.voting__app__register__page__form__con .title h4 {
+  font-size: 18px;
+  color: #bfbfd4;
+  font-weight: 400;
+}
+
+.voting__app__register__page__form__con .fingerprint__con .title h3 {
+  color: #838383;
+  font-family: Inter;
+  font-size: 14px;
+}
+
+.voting__app__register__page__form__con .fingerprint__con .title h5 {
+  font-size: 14px;
+  font-style: italic;
+  color: #bfbfd4;
+}
+
+.voting__app__register__page__form__con .form__back___btn button {
+  all: unset;
+  cursor: pointer;
+}
+
+/* ===================================
+    REGISTER PAGE ENDS HERE
+====================================== */
+
+/* ===================================
+    DASHBOARD LAYOUT STARTS HERE
+====================================== */
+
+.voting__app__dashboard__layout {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.voting__app__dashboard__layout .main__content {
+  margin-left: 292px;
+  padding: 40px;
+  background-color: #f8f9fb;
+  height: 100%;
+  padding-top: 129px;
+  overflow-y: auto;
+}
+
+.voting__app__dashboard__header {
+  position: fixed;
+  left: 292px;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 40px;
+  padding-bottom: 22px;
+}
+
+.voting__app__dashboard__header p {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.voting__app__dashboard__sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 292px;
+  bottom: 0;
+  background-color: #fff;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.voting__app__dashboard__sidebar .logo__con {
+  margin-left: 33px;
+}
+
+.voting__app__dashboard__sidebar .logo__con h4 {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.voting__app__dashboard__sidebar .rights__reserved {
+  margin-left: 33px;
+  margin-bottom: 15px;
+}
+
+.voting__app__dashboard__sidebar .rights__reserved p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #bfbfd4;
+}
+
+.voting__app__dashboard__sidebar .links__con a {
+  display: block;
+  text-decoration: none;
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link div {
+  display: block;
+  padding: 16px 0;
+  padding-left: 33px;
+  background-color: #fff;
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link div:hover {
+  background: rgba(248, 249, 251, 0.85);
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link div p {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5d5d5d;
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link.active div {
+  background-color: #f8f9fb;
+  border-left: 5px solid #0f5fc2;
+  padding-left: 28px;
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link.active path {
+  stroke: #0f5fc2;
+}
+
+.voting__app__dashboard__sidebar .links__con .dashboard__link.active div p {
+  color: #0f5fc2;
+}
+
+/* ===================================
+    DASHBOARD LAYOUT ENDS HERE
+====================================== */
+
+/* ===================================
+    DASHBOARD STARTS HERE
+====================================== */
+.voting__app__announcement__card {
+  max-width: 573px;
+  background-color: #fff;
+  padding: 24px;
+}
+
+.voting__app__announcement__card .title h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.voting__app__announcement__card .content p {
+  color: #242424;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.election__card__grid__con {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 25px;
+}
+
+.voting__app__election__card__con,
+.voting__app__election__candidate__card__con {
+  background: #fff;
+  box-shadow: 0px 10px 60px 0px rgba(226, 236, 249, 0.32);
+  padding: 24px;
+}
+
+.voting__app__election__card__con .left {
+  width: 60%;
+}
+
+.voting__app__election__card__con .right {
+  width: 40%;
+}
+
+.voting__app__election__card__title {
+  font-size: 12px;
+  font-weight: 400;
+  color: #bfbfd4;
+}
+
+.voting__app__election__card__value {
+  color: #242424;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.recent__elections__title h3 {
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.recent__elections__title a {
+  text-decoration: none;
+  color: #0f5fc2;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===================================
+    DASHBOARD ENDS HERE
+====================================== */
+
+/* ===================================
+    DASHBOARD RESULT STARTS HERE
+====================================== */
+.voting__app__result__card {
+  padding: 15px 25px;
+}
+
+.voting__app__result__card .title__con p {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.voting__app__result__card .title__con a {
+  color: #0f5fc2;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.voting__app__result__card__item .candidate {
+  flex: 1;
+}
+
+.voting__app__result__card__item .result {
+  flex: 1;
+}
+
+.voting__app__result__card__item .icon {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.voting__app__result__card__item .icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.voting__app__result__card__item .name {
+  overflow: hidden;
+}
+
+.voting__app__result__card__item .name p {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 600;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.voting__app__result__card__item .result .progress__bar {
+  width: 100%;
+  height: 5px;
+  border-radius: 2px;
+  background-color: #00ac4f;
+}
+
+.voting__app__result__card__item .result .votes {
+  color: #bfbfd4;
+  font-size: 9px;
+  font-weight: 400;
+}
+
+/* ===================================
+    DASHBOARD RESULT ENDS HERE
+====================================== */
+
+/* ===================================
+    DASHBOARD ELECTION STARTS HERE
+====================================== */
+.voting__app__elections__page__title h2 {
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.voting__app__election__candidate__card__con .candidate__picture img {
+  max-width: 113px;
+  max-height: 113px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.voting__app__election__candidate__card__con .party__logo {
+  width: 47px;
+  height: 47px;
+
+  overflow: hidden;
+}
+
+.voting__app__election__candidate__card__con .candidate__details h6 {
+  color: #bfbfd4;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.voting__app__election__candidate__card__con .candidate__details p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #242424;
+}
+
+.election__modal__container .modal-dialog {
+  justify-content: center;
+}
+
+.election__modal__container .modal-content {
+  max-width: 435px;
+  width: 100%;
+}
+
+.voting__app__election__modal {
+  max-width: 435px;
+  min-height: 441px;
+  width: 100%;
+  padding: 44px;
+}
+
+.voting__app__election__modal .content {
+  flex: 1;
+}
+
+.voting__app__election__modal .content .title {
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.voting__app__election__modal .content .voting__method p {
+  color: #242424;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* .voting__app__election__modal .content .enter__email p {
+  color: #bfbfd4;
+  font-size: 14px;
+  font-weight: 500;
+} */
+
+.voting__app__election__modal .content .voting__method .button__con {
+  width: 100%;
+  display: flex;
+}
+
+.voting__app__election__modal .content .voting__method button {
+  all: unset;
+  cursor: pointer;
+  color: #3bcfa7;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 12px;
+  border: 1px solid #3bcfa7;
+  width: 100%;
+}
+
+.voting__app__election__modal .enter__otp p {
+  color: #bfbfd4;
+  color: #242424;
+  font-size: 14px;
+  /* font-weight: 500; */
+}
+
+.voting__app__election__modal .enter__otp .otp__container {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.voting__app__election__modal .enter__otp .otp__input {
+  width: 40px !important;
+  height: 40px !important;
+  border: none;
+  border-bottom: 2px solid #5d5d5d;
+}
+
+/* ===================================
+    DASHBOARD ELECTION ENDS HERE
+====================================== */
+
+/* ===================================
+    DASHBOARD RESULTS STARTS HERE
+====================================== */
+
+.voting__app__pie__chart {
+  min-width: 304px;
+  min-height: 400px;
+}
+
+.voting__app__pie__chart h3 {
+  color: #000;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.voting__app__pie__chart .legend {
+  flex: 1;
+}
+
+.voting__app__pie__chart .legend .color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.voting__app__pie__chart .legend p {
+  color: #acacac;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.voting__app__view__all a {
+  color: #0f5fc2;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.voting__app__result__table {
+  padding: 20px 0;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.voting__app__result__table h4 {
+  color: #2b3674;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0 30px;
+}
+
+.voting__app__result__table .candidate__table {
+  margin-top: 23px;
+}
+
+.voting__app__result__table .candidate__table tbody:first-of-type tr td:first-of-type,
+.voting__app__result__table .candidate__table thead:first-of-type tr th:first-of-type {
+  padding-left: 30px;
+}
+
+.voting__app__result__table .candidate__table thead tr th {
+  color: #a3aed0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.28px;
+}
+
+.voting__app__result__table .candidate__table tbody tr th {
+  color: #2b3674;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: -0.28px;
+}
+
+.voting__app__result__table .candidate__table .img-con {
+  width: 22px;
+  height: 22px;
+}
+
+.voting__app__result__table .candidate__table .progress__bar {
+  width: 108px;
+  background-color: #eff4fb;
+  height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.voting__app__result__table .candidate__table .progress__bar .progress {
+  height: 100%;
+  border-radius: 8px;
+}
+
+/* ===================================
+    DASHBOARD RESULTS ENDS HERE
+====================================== */

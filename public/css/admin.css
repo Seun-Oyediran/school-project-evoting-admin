@@ -1,0 +1,71 @@
+.voting__app__announcement__card.create p {
+  color: #bfbfd4;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dashboard__grid__con {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 16px;
+}
+
+.voting__app__admin__election__stats .title h4 {
+  color: #242424;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.voting__app__admin__election__stats .stats h1 {
+  color: #00ac4f;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -1.6px;
+  text-align: center;
+}
+
+.voting__app__admin__election__stats .stats h1.completed {
+  color: #0f5fc2;
+}
+
+.voting__app__admin__election__stats .stats h1.uncompleted {
+  color: #da001a;
+}
+
+.voting__app__admin__election__stats .stats p {
+  color: #bfbfd4;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+  text-align: center;
+}
+
+.voting__app__admin__election__stats.voters .stats p {
+  text-align: left;
+}
+
+.election__modal__container.form .modal-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.voting__app__admin__create {
+  padding: 45px;
+}
+
+.voting__app__admin__create .title h3 {
+  color: #242424;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.voting__app__spinner {
+  width: 2rem !important;
+  height: 2rem !important;
+}
